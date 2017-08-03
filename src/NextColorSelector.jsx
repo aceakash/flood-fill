@@ -6,7 +6,9 @@ import hat from 'hat'
 
 export default function (props) {
     const palette = props.palette
-    const tiles = palette.map(color => <Tile color={color} key={hat()}/>)
+    const onNextColorSelected = props.onNextColorSelected
+
+    const tiles = palette.map(color => <Tile color={color} update={onNextColorSelected} key={hat()}/>)
 
     return (
         <div className="nextColorSelector">

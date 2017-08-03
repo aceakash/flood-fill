@@ -14,12 +14,16 @@ export default class App extends React.Component {
     
   }
 
+  onNextColorSelected(e) {
+    console.log('BOO!', e)
+  }
+
   render() {
     return (
       <div className="app">
         <Board colorGrid={this.state.colorGrid}/>
         <hr />
-        <NextColorSelector palette={this.palette}/>
+        <NextColorSelector palette={this.palette} onNextColorSelected={this.onNextColorSelected} />
       </div>
     )
   }
