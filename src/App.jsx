@@ -1,15 +1,27 @@
 import React from 'react'
 import Board from './Board.jsx'
+// import _ from 'lodash'
 
-class App extends React.Component {
+export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      colorGrid: getColorGrid()
+    }
+  }
+  
   render() {
     return (
       <div className="app">
-        <Board size={21} />
-        
+        <Board colorGrid={this.state.colorGrid} />
       </div>
     )
   }
 }
 
-export default App
+function getColorGrid() {
+  return [
+    ['red', 'blue'],
+    ['yellow', 'orange']
+  ]
+}

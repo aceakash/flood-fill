@@ -1,11 +1,13 @@
 import React from 'react'
 import Tile from './Tile.jsx'
 import hat from 'hat'
-import _ from 'lodash'
+// import _ from 'lodash'
 
 
 export default function (props) {
-    const tiles = _.range(props.size).map(i => <Tile color={'red'} key={hat()}/>)
+    const colors = props.colors
+    console.log('in tilerow', colors)
+    const tiles = colors.map(color => <Tile color={color} key={hat()}/>)
 
     return (
         <div className="tileRow">
@@ -13,3 +15,4 @@ export default function (props) {
         </div>
     )
 }
+
