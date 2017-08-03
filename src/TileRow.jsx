@@ -5,8 +5,8 @@ import hat from 'hat'
 
 
 export default function (props) {
-    const colors = props.colors
-    const tiles = colors.map(color => <Tile color={color} key={hat()}/>)
+    const cells = props.cells
+    const tiles = cells.map(cell => <Tile color={cell.color} key={hat()}/>)
 
     return (
         <div className="tileRow">

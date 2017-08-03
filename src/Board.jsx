@@ -4,11 +4,11 @@ import _ from 'lodash'
 import TileRow from './TileRow.jsx'
 
 export default function (props) {
-    const colorGrid = props.colorGrid
+    const cells = props.cells
 
     const tileRows = _
-        .range(colorGrid.length)
-        .map(rowIndex => (<TileRow colors={colorGrid[rowIndex]} key={hat()}/>))
+        .range(cells.length)
+        .map(rowIndex => (<TileRow cells={cells[rowIndex]} key={hat()}/>))
 
     return (
         <div className="board">

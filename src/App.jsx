@@ -9,8 +9,10 @@ export default class App extends React.Component {
     super()
     this.palette = ['red', 'blue', 'orange', 'yellow']
     this.state = {
-      colorGrid: getColorGrid(this.palette)
+      cells: getInitialCells(this.palette)
     }
+    this.floodColor = this.state.cells[0][0].color
+    console.log(this.floodColor)
     
   }
 
@@ -21,7 +23,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Board colorGrid={this.state.colorGrid}/>
+        <Board cells={this.state.cells}/>
         <hr />
         <NextColorSelector palette={this.palette} onNextColorSelected={this.onNextColorSelected} />
       </div>
@@ -29,17 +31,40 @@ export default class App extends React.Component {
   }
 }
 
-function getColorGrid(palette) {
-  const size = 11
+// function getColorGrid(palette) {
+//   const size = 11
   
 
+//   const rows = _
+//     .range(size)
+//     .map(rowIndex => {
+//       return _
+//         .range(size)
+//         .map(i => _.sample(palette))
+//     })
+
+//   return rows
+// }
+
+function getInitialCells(palette) {
+  const size = 11
   const rows = _
     .range(size)
-    .map(rowIndex => {
+    .map(row => {
       return _
         .range(size)
-        .map(i => _.sample(palette))
+        .map(col => createCell(row, col, _.sample(palette), false))
     })
-
+  rows[0][0].isFlooded = true  
   return rows
+}
+
+
+function createCell(row, col, color, isFlooded) {
+  return {
+    row: row,
+    col: col,
+    color: color,
+    isFlooded: isFlooded
+  };
 }
