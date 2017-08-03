@@ -1,12 +1,18 @@
 import React from 'react'
 
 export default class Tile extends React.Component {
-  render() {
-    return (
-        <div className="tile">
-            <span style={{color: "#6C6", fontSize: "135px"}}>&#x2B22;</span>
-        </div>
-    )
-  }
-}
 
+    render() {
+        const style = {
+            width: "30px",
+            height: "30px",
+            backgroundColor: this.props.color,
+            margin: '1px'
+        }
+        return (
+            <div
+                className="tile"
+                style={style}></div>
+        )
+    }
+}

@@ -1,28 +1,24 @@
 import React from 'react'
 import Tile from './Tile.jsx'
+import hat from 'hat'
 
 export default class Board extends React.Component {
   constructor() {
     super()
-    this.tiles = this.createTiles(this)
+    this.tiles = this.createTilesRow(3)
   }
 
   // returns a board with tiles
-  createTiles(sidelength) {
+  createTilesRow(num) {
     const tiles = []
-    tiles.push(this.createSingleTile(0, 0, 'ground'))
-    tiles.push(this.createSingleTile(0, 1, 'ground'))
-    tiles.push(this.createSingleTile(1, 0, 'lava'))
-    tiles.push(this.createSingleTile(1, 1, 'ground'))
-    tiles.push(this.createSingleTile(1, 2, 'ground'))
-    tiles.push(this.createSingleTile(2, 0, 'ground'))
-    tiles.push(this.createSingleTile(2, 1, 'ground'))
+    for (var j = 0; j < num; j++) {    
+        tiles.push(this.createSingleTile('red'))
+    }
     return tiles
-  }
+}
 
-  createSingleTile(x, y, type) {
-      const key = `tile_${x}_${y}`
-      return (<Tile x={x} y={y} type={type} key={key} />)
+  createSingleTile(color) {
+      return (<Tile color={color} key={hat()} />)
   }
 
 
