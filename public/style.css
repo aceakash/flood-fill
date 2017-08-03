@@ -1,5 +1,12 @@
 .tile {
     display: inline-block;
-    margin: 0px 1px 1px 1px;
-    
+    margin: 0;
+}
+
+.tileRow {
+    margin: 0;
+}
+
+.nextColorSelector .tile {
+    margin: 5px;
 }

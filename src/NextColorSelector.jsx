@@ -5,11 +5,11 @@ import hat from 'hat'
 
 
 export default function (props) {
-    const colors = props.colors
-    const tiles = colors.map(color => <Tile color={color} key={hat()}/>)
+    const palette = props.palette
+    const tiles = palette.map(color => <Tile color={color} key={hat()}/>)
 
     return (
-        <div className="tileRow">
+        <div className="nextColorSelector">
             {tiles}
         </div>
     )
