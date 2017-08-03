@@ -15,15 +15,8 @@ export default class App extends React.Component {
   }
 
   onNextColorSelected(nextColor) {
-    // console.log('beginning of onNextColorSelected')
-    // console.log('nextColor', nextColor)
-    // console.log('this.state.floodedPositions', this.state.floodedPositions)
-    // console.log('this in onNextColorSelected', this)
-    // console.log('floodedCells', floodedCells)
     const positionsToFlood = getPositionsToFlood(this.state.cells, this.state.floodedPositions, nextColor)
     const newCells = flood(this.state.cells, positionsToFlood, this.floodColor)
-    // const floodedCells = getFloodedCells(newCells, this.floodColor)
-    // console.log('floodedCells', floodedCells)
     this.setState({
       cells: newCells,
       floodedPositions: getFloodedCells(newCells, this.floodColor)
@@ -43,10 +36,6 @@ export default class App extends React.Component {
   }
 }
 
-// function getColorGrid(palette) {   const size = 11   const rows = _
-// .range(size)     .map(rowIndex => {       return _         .range(size)
-// .map(i => _.sample(palette))     })   return rows }
-
 function flood(cells, positionsToFlood, floodColor) {
   positionsToFlood.forEach(pos => cells[pos.row][pos.col].color = floodColor)
   return cells
@@ -59,7 +48,6 @@ function getFloodedCells(cells, floodColor) {
 }
 
 function getPositionsToFlood(cells, floodedCells, nextColor) {
-  // console.log(cells, floodedCells, nextColor)
   const positionsToFlood = []
   floodedCells.forEach(fc => {
     getNeighbouringPositions(cells.length, fc.row, fc.col).forEach(pos => {
@@ -69,7 +57,6 @@ function getPositionsToFlood(cells, floodedCells, nextColor) {
       }
     })
   })
-  // console.log('getPositionsToFlood is about to return', positionsToFlood)
   return positionsToFlood
 }
 
@@ -90,7 +77,6 @@ function createCell(row, col, color, isFlooded) {
   return {row: row, col: col, color: color, isFlooded: isFlooded};
 }
 
-// returns  [{row, col}, {row, col}, ...]
 function getNeighbouringPositions(squareSize, row, col) {
   const potentials = [
     {
