@@ -5,7 +5,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Board sideLength={2} />
+        <Board size={21} />
         
       </div>
     )

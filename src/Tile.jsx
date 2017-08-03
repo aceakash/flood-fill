@@ -6,13 +6,13 @@ export default class Tile extends React.Component {
         const style = {
             width: "30px",
             height: "30px",
-            backgroundColor: this.props.color,
-            margin: '1px'
+            backgroundColor: this.props.color
         }
         return (
             <div
                 className="tile"
-                style={style}></div>
+                style={style}
+            />
         )
     }
 }
