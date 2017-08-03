@@ -4,7 +4,7 @@ export default class Tile extends React.Component {
   render() {
     return (
         <div className="tile">
-            I am a tile of type {this.props.type}
+            <span style={{color: "#6C6", fontSize: "135px"}}>&#x2B22;</span>
         </div>
     )
   }
