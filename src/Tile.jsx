@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function (props) {
     const style = {
-        width: "30px",
-        height: "30px",
+        width: "50px",
+        height: "50px",
         backgroundColor: props.color
     }
     return (<div className="tile" style={style} onClick={makeOnClickHandler(props.update, props.color)} />)

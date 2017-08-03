@@ -5,6 +5,7 @@
 
 .tileRow {
     margin: 0;
+    height: 50px;
 }
 
 .nextColorSelector .tile {
